@@ -3,4 +3,4 @@
 ## How to Run
 python main.py
 
-Project status: Planning
+Project status: Testing
