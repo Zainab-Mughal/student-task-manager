@@ -18,7 +18,9 @@ class TaskManager:
         self.next_id = 1
 
     def add_task(self, title):
-        task = Task(self.next_id, title)
+        if title is None or not title.strip():
+            raise ValueError("Task title cannot be empty.")
+        task = Task(self.next_id, title.strip())
         self.tasks.append(task)
         self.next_id += 1
         return task
@@ -34,8 +36,11 @@ class TaskManager:
 
     def complete_task(self, task_id):
         task = self.find_task(task_id)
-        if task:
-            task.completed = True
+        if task is None:
+            raise ValueError(f"No task found with ID {task_id}.")
+        if task.completed:
+            raise ValueError(f"Task {task_id} is already completed.")
+        task.completed = True
         return task
 
     def delete_task(self, task_id):
