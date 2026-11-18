@@ -32,9 +32,12 @@ def handle_complete(manager):
 
 
 def handle_delete(manager):
-    task_id = int(input("Enter task ID to delete: "))
-    manager.delete_task(task_id)
-    print("Task deleted.")
+    try:
+        task_id = int(input("Enter task ID to delete: "))
+        task = manager.delete_task(task_id)
+        print(f"Deleted: {task.title}")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 def main():
