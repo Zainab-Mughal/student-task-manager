@@ -40,6 +40,7 @@ class TaskManager:
 
     def delete_task(self, task_id):
         task = self.find_task(task_id)
-        if task:
-            self.tasks.remove(task)
+        if task is None:
+            raise ValueError(f"No task found with ID {task_id}.")
+        self.tasks.remove(task)
         return task
