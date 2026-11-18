@@ -3,4 +3,4 @@
 ## How to Run
 python main.py
 
-Project status: In Progress
+Project status: In Progress (Testing phase started)
