@@ -9,7 +9,7 @@ class TestTaskManager(unittest.TestCase):
 
     def test_add_task(self):
         task = self.manager.add_task("Finish DevOps lab")
-        self.assertEqual(task.title, "Finish DevOps lab")
+        self.assertEqual(task.title, "Wrong title")
         self.assertEqual(len(self.manager.list_tasks()), 1)
 
     def test_add_empty_task_rejected(self):
