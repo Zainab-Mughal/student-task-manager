@@ -34,8 +34,11 @@ class TaskManager:
 
     def complete_task(self, task_id):
         task = self.find_task(task_id)
-        if task:
-            task.completed = True
+        if task is None:
+            raise ValueError(f"No task found with ID {task_id}.")
+        if task.completed:
+            raise ValueError(f"Task {task_id} is already completed.")
+        task.completed = True
         return task
 
     def delete_task(self, task_id):
